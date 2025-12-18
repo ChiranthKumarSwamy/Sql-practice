@@ -1,5 +1,4 @@
-Here is an **easy-to-remember, exam-friendly summary** of your SQL notes, written in **simple points** 👇
-(Perfect for quick revision ✅)
+---------------------------------------------Day 1 -------------------------------------------------------------------
 
 ---
 
@@ -197,3 +196,107 @@ SELECT emp_name FROM employee WHERE gender != 'F';
 * **UPDATE** → change data
 * **DELETE** → remove data
 * **WHERE** → filter data
+
+------------------------------------------------------DAY - 2 --------------------------------------------------------------------------------------
+
+---
+
+## 🔹 WHERE Clause (Summary)
+
+The `WHERE` clause is used to **filter records** based on a condition.
+
+---
+
+## 1️⃣ AND Operator
+
+* Returns rows **only when all conditions are TRUE**.
+
+```sql
+SELECT emp_id, emp_name 
+FROM employee 
+WHERE gender = 'm' AND emp_birthday = '2002-10-21';
+```
+
+✅ Output appears **only if both conditions are satisfied**.
+
+---
+
+## 2️⃣ OR Operator
+
+* Returns rows when **any one condition is TRUE**.
+
+Truth table:
+
+* T + T = T
+* T + F = T
+* F + T = T
+* F + F = F
+
+```sql
+SELECT emp_id 
+FROM employee 
+WHERE gender = 'm' OR emp_id = 1;
+```
+
+```sql
+SELECT emp_name 
+FROM employee 
+WHERE emp_birthday = '2002-10-21' OR gender = 'm';
+```
+
+---
+
+## 3️⃣ NOT Operator
+
+* Reverses the condition.
+* Returns rows where the condition is **FALSE**.
+
+```sql
+SELECT emp_name 
+FROM employee 
+WHERE NOT gender = 'female';
+```
+
+➡ Returns employees who are **not female**.
+
+---
+
+## 4️⃣ LIKE Operator
+
+Used for **pattern matching** in strings.
+
+### Wildcards:
+
+* `%` → matches **any number of characters**
+* `_` → matches **exactly one character**
+
+Examples:
+
+```sql
+SELECT emp_name FROM employee WHERE emp_name LIKE 'c%';   -- starts with c
+SELECT emp_name FROM employee WHERE emp_name LIKE '%u';   -- ends with u
+SELECT emp_name FROM employee WHERE emp_name LIKE 'c%u';  -- starts with c and ends with u
+SELECT emp_name FROM employee WHERE emp_name LIKE 'A__';  -- starts with A and has exactly 3 letters
+```
+
+---
+
+## 5️⃣ BETWEEN Operator
+
+* Used to check values **within a range** (inclusive).
+
+```sql
+SELECT * 
+FROM employee 
+WHERE emp_birthday BETWEEN '2002-08-10' AND '2002-10-21';
+```
+
+➡ Includes **both start and end dates**.
+
+---
+
+## ✅ One-line Exam Summary
+
+> The `WHERE` clause filters data using conditions with operators like `AND`, `OR`, `NOT`, `LIKE`, and `BETWEEN`.
+
+
